@@ -1,3 +1,35 @@
+"""
+Test Title: Display BMW 2020 models 
+
+Test ID: Dealership-app-01 
+
+Purpose: Filter and display only BMW 2020 models from the inventory feature 
+
+Verification Requirement: 
+
+Story Example: As a potential customer, I would like to see the availability of BMW 2020 models. 
+
+Pre-conditions: 
+
+The web app is on the inventory feature 
+
+There is no filter selected 
+
+Expected output: The web app should only display BMW 2020 models available in a friendly way. 
+
+Steps 
+
+Action: From the inventory page, hit the BMW box to access only that brand. 
+
+Results: The inventory is only displaying BMW cars now. 
+
+Action: From the filter section of the inventory, scroll down until the model year and hit the 2020 box to display only BMW 2020 models.  
+
+Results: The web app is only displaying the three BMW 2020 models available. 
+
+Pass/Fail or Verify Step: The web app passes this test case. It displays the selected brand and model year requested in a friendly and easy way.  
+"""
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait

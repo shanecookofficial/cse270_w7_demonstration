@@ -1,8 +1,39 @@
+"""
+Test Title: Contact a sales representative  
+
+Test ID: Dealership-app-03 
+
+Purpose: Contact a sales representative and send a message through the web application. 
+
+Verification Requirement: 
+
+Story Example: As a potential customer, I would like to contact and get more information about a specific car. 
+
+Pre-conditions: 
+
+The web app is on the sales representatives feature 
+
+Salt Lake City is the chosen location and representative 
+
+Expected output: The web app should let me text the representative and display a friendly message when I send my message.  
+
+Steps 
+
+Action: In the sales representatives page, click on Salt Lake City location and select “contact dealer”. 
+
+Results: It prompts for personal info to contact me and displays a box of text where I can write my message. 
+
+Action: Provide my information and send a message to the dealer. 
+
+Results: It displays “message sent”. 
+
+Pass/Fail or Verify Step: The web app passes this test case. The contact dealer feature works, and I can send messages through the web app.  
+"""
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
 import names
 from selenium.common.exceptions import NoSuchElementException
 
@@ -42,12 +73,11 @@ WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH,comment_xpat
 contact_dealer_button_xpath = "//button[contains(text(),'Contact Dealer')]"
 WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH,contact_dealer_button_xpath))).click()
 
-#modal_confirmation
 try:
     modal_confirmation_xpath = "//div[@class='modal_confirmation']"
     WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH,modal_confirmation_xpath)))
     assert True
 except NoSuchElementException:
-    assert False
+    assert False, "Message Sent modal is not present"
 
 driver.quit()

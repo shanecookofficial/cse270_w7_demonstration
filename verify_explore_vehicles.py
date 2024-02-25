@@ -1,3 +1,29 @@
+"""
+Test Title: Use the explore vehicles feature 
+
+Test ID: Dealership-app-06 
+
+Purpose: Verify if the "explore vehicles" feature from the home page has functionality. 
+
+Verification Requirement: 
+
+Story Example: As a potential customer, I noticed the explore vehicles feature on the home page and I would like to search for my favorite brand Jeep. 
+
+Pre-conditions: 
+
+The web app is on the home page 
+
+Expected output: The "explore vehicles" feature should give me only Jeep cars. 
+
+Steps 
+
+Action: From the home page, select the "explore vehicles" feature and search for Jeep models. 
+
+Results: The feature takes me to the inventory and directly displays only Jeep vehicles. 
+
+Pass/Fail or Verify Step: The web app passes this test case. It only displays available Jeep cars. 
+"""
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -30,6 +56,6 @@ for h4 in h4_elements:
         all_2020 = False
         break
 
-assert all_jeep, "No <h4> element contains a brand other than Jeep"
+assert all_jeep, "Some of the <h4> elements contain cars other than Jeep"
 
 driver.quit()

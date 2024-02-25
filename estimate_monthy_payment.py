@@ -1,9 +1,38 @@
+"""
+Test Title: Estimate monthly payment 
+
+Test ID: Dealership-app-07 
+
+Purpose: Verify that the website calculates an estimated monthly payment for chosen vehicle 
+
+Verification Requirement: 
+
+Story Example: As I was looking at several vehicles, I noticed that there is a payment calculator, which will estimate your monthly payments. 
+
+Pre-conditions: 
+
+The inventory page is selected 
+
+There are no filters selected 
+
+Click on the “View Details” button to bring up details on selected vehicle 
+
+Expected output: The "View Details” button should bring up details for the selected vehicle. 
+
+Steps 
+
+Action: Enter a dollar amount in the Down Payment box 
+
+Results: The feature displays your monthly payment at the bottom of the page 
+
+Pass/Fail or Verify Step: The web app passes this test case. It displays a monthly payment. 
+"""
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 import re
 import random
@@ -40,6 +69,6 @@ monthly_payment = str(round(principal * (monthly_rate * (1 + monthly_rate)**term
 
 time.sleep(3)
 cost_per_month_value_xpath = "//p[@class='loanCalculator_result-price']/span/span"
-assert driver.find_element(By.XPATH,cost_per_month_value_xpath).text == monthly_payment
+assert driver.find_element(By.XPATH,cost_per_month_value_xpath).text == monthly_payment, "The cost per month is incorrect"
 
 driver.quit()
